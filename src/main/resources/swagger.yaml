@@ -1,0 +1,94 @@
+# Example YAML to get you started quickly.
+# Be aware that YAML has indentation based scoping.
+# Code completion support is available so start typing for available options.
+swagger: '2.0'
+
+# This is your document metadata
+info:
+  version: "1.0.0"
+  title: Reproduction Request
+  description: Making document of reproduction request for water biological resources
+
+host: api.reproductionrequest.com
+schemes:
+  - https
+basePath: /v1
+produces:
+  - application/json
+# Describe your paths here
+paths:
+  # This is a path endpoint. Change it.
+  /documents:
+    # This is a HTTP operation
+    get:
+      summary: List of documents
+      # Describe this verb here. Note: you can use markdown
+      description: |
+        Gets `Documents` objects.
+      # Expected responses for this operation:
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          # A schema describing your response object.
+          # Use JSON Schema format
+          schema:
+            $ref: "#/definitions/Documents"
+
+
+definitions:
+  Documents:
+    type: array
+    items:
+      $ref: "#/definitions/Document"
+  Document:
+    type: object
+    properties:
+      document_id:
+        type: number
+        format: int
+        description: PK
+      denominationOfApplicant:
+        description: наименование заявителя
+        type: string
+      legalStatusOfTheApplicant:
+        description: правовой статус заявителя
+        type: string
+      theTypeLaborArbitrators:
+        description: Вид подготовки трудовых арбитров
+        type: string
+      formOfThePreparationOfLaborArbitrators:
+        description: форма подготовки трудовых арбитров
+        type: string
+      timeOfThePreparationOfLaborArbitrators:
+        description: Время прохождения подготовки трудовых арбитров
+        type: string
+        format: date
+      preferredLocation:
+        description: место прохождения подготовки
+        type: string
+      mailingAddressOfTheApplicant:
+        description: Почтовый адрес заявителя
+        type: string
+      contactPhoneNumber:
+        description: Контактный телефоны
+        type: string
+      emailAddress:
+        description: адрес электронной почты заявителя
+        type: string
+      positionApplicant:
+        description: Должность представителя заявителя
+        type: string
+      fullName:
+        description: имя пользователя
+        type: string
+      date:
+        description: дата подачи заявления
+        type: string
+        format: data
+      idUser:
+       description: id пользователя
+       type: number
+       format: int
+
+
