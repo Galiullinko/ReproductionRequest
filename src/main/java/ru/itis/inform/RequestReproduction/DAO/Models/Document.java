@@ -8,9 +8,9 @@ import java.util.Date;
 public class Document {
 
     private int document_id;
-    private int userId;
+    private Participant participant = null;
     private int yearOfWorks;
-    private Goals goal;
+    private Goal goal;
     private Date dateOfEndOfTheWork;
     private String stateOfCreature;
     private String typeOfCreature;
@@ -29,11 +29,11 @@ public class Document {
         this.yearOfWorks = yearOfWorks;
     }
 
-    public Goals getGoal() {
+    public Goal getGoal() {
         return goal;
     }
 
-    public void setGoal(Goals goal) {
+    public void setGoal(Goal goal) {
         this.goal = goal;
     }
 
@@ -117,19 +117,19 @@ public class Document {
         this.document_id = document_id;
     }
 
-    public int getUserId() {
-        return userId;
+    public Participant getParticipant() {
+        return participant;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setParticipant(Participant participant) {
+        this.participant = participant;
     }
 
     @Override
     public String toString() {
         return "Document{" +
                 "document_id=" + document_id +
-                ", userId=" + userId +
+                ", participant=" + participant +
                 ", yearOfWorks=" + yearOfWorks +
                 ", goal=" + goal +
                 ", dateOfEndOfTheWork=" + dateOfEndOfTheWork +

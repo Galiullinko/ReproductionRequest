@@ -1,93 +1,93 @@
 package ru.itis.inform.RequestReproduction.DAO.Models;
 
 /**
- * Created by Galiullin_ko on 09/04/16.
+ * Created by Galiullin_ko on 10/04/16.
  */
 public class User {
     private int userId;
-    private boolean isIE;
-    private String nameOfEntity;
-    private String idOfTaxpayer;
-    private String location;
-    private String mainStateRegistrationNumber;
-    private String nameOfIE; //IE - индивидуальный предприниматель
-    private String surnameOfIE;
-    private String patronymicOfIE;
+    private String name;
+    private String surname;
+    private String patronymic;
+    private String seriesOfThePassport;
+    private String numberOfThePassport;
+    private String phoneNumber;
+    private String email;
 
-
-    public String getNameOfEntity() {
-        return nameOfEntity;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setNameOfEntity(String nameOfEntity) {
-        this.nameOfEntity = nameOfEntity;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public String getIdOfTaxpayer() {
-        return idOfTaxpayer;
+    public String getName() {
+        return name;
     }
 
-    public void setIdOfTaxpayer(String idOfTaxpayer) {
-        this.idOfTaxpayer = idOfTaxpayer;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLocation() {
-        return location;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public String getMainStateRegistrationNumber() {
-        return mainStateRegistrationNumber;
+    public String getPatronymic() {
+        return patronymic;
     }
 
-    public void setMainStateRegistrationNumber(String mainStateRegistrationNumber) {
-        this.mainStateRegistrationNumber = mainStateRegistrationNumber;
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
     }
 
-    public String getNameOfIE() {
-        return nameOfIE;
+    public String getSeriesOfThePassport() {
+        return seriesOfThePassport;
     }
 
-    public void setNameOfIE(String nameOfIE) {
-        this.nameOfIE = nameOfIE;
+    public void setSeriesOfThePassport(String seriesOfThePassport) {
+        this.seriesOfThePassport = seriesOfThePassport;
     }
 
-    public String getSurnameOfIE() {
-        return surnameOfIE;
+    public String getNumberOfThePassport() {
+        return numberOfThePassport;
     }
 
-    public void setSurnameOfIE(String surnameOfIE) {
-        this.surnameOfIE = surnameOfIE;
+    public void setNumberOfThePassport(String numberOfThePassport) {
+        this.numberOfThePassport = numberOfThePassport;
     }
 
-    public String getPatronymicOfIE() {
-        return patronymicOfIE;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPatronymicOfIE(String patronymicOfIE) {
-        this.patronymicOfIE = patronymicOfIE;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
     public String toString() {
-        if (isIE) {
-            return "User{" +
-                    "NameOfIE='" + nameOfIE + '\'' +
-                    ", surnameOfIE='" + surnameOfIE + '\'' +
-                    ", patronymicOfIE='" + patronymicOfIE + '\'' +
-                    ", idOfTaxpayer='" + idOfTaxpayer + '\'' +
-                    ", location='" + location + '\'' +
-                    '}';
-        } else {
-            return "User{" +
-                    "nameOfEntity='" + nameOfEntity + '\'' +
-                    ", idOfTaxpayer='" + idOfTaxpayer + '\'' +
-                    ", location='" + location + '\'' +
-                    ", mainStateRegistrationNumber='" + mainStateRegistrationNumber + '\'' +
-                    '}';
-        }
+        return "User{" +
+                "userId=" + userId +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", patronymic='" + patronymic + '\'' +
+                ", seriesOfThePassport='" + seriesOfThePassport + '\'' +
+                ", numberOfThePassport='" + numberOfThePassport + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

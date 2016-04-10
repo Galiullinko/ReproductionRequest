@@ -43,7 +43,7 @@ paths:
         - Documents
       parameters:
        - in: body
-         userId: body
+         participantId: body
          description: Add new Document
          required: false
          schema:
