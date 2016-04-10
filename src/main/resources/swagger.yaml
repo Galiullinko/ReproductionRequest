@@ -26,6 +26,8 @@ paths:
       description: |
         Gets `Documents` objects.
       # Expected responses for this operation:
+      tags:
+        - Documents
       responses:
         # Response code
         200:
@@ -34,6 +36,34 @@ paths:
           # Use JSON Schema format
           schema:
             $ref: "#/definitions/Documents"
+    post:
+      summary: New Document
+      description: Add new document
+      tags:
+        - Documents
+      parameters:
+       - in: body
+         userId: body
+         description: Add new Document
+         required: false
+         schema:
+           $ref: "#/definitions/Document"
+      responses:
+        405:
+          description: Data is not valid
+  /document/{id}:
+    get:
+      summary: Get document
+      description: Get document with specified ID
+      tags:
+        - Documents
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: "#/definitions/Document"
+
+
 
 
 definitions:
@@ -48,37 +78,43 @@ definitions:
         type: number
         format: int
         description: PK
-      denominationOfApplicant:
-        description: наименование заявителя
-        type: string
-      legalStatusOfTheApplicant:
-        description: правовой статус заявителя
-        type: string
-      theTypeLaborArbitrators:
-        description: Вид подготовки трудовых арбитров
-        type: string
-      formOfThePreparationOfLaborArbitrators:
-        description: форма подготовки трудовых арбитров
-        type: string
-      timeOfThePreparationOfLaborArbitrators:
-        description: Время прохождения подготовки трудовых арбитров
+      yearOfWorks:
+        type: number
+        format: int
+        description: Begining year for works
+      dateOfEndOfTheWork:
+        description: Date of the end of the works
         type: string
         format: date
-      preferredLocation:
-        description: место прохождения подготовки
+      stateOfCreature:
+        description: What state of creature is used
         type: string
-      mailingAddressOfTheApplicant:
-        description: Почтовый адрес заявителя
+      typeOfCreature:
+        description: What type of creature is used
         type: string
-      contactPhoneNumber:
-        description: Контактный телефоны
+      numberOfCreatures:
+        description: How many creatures are made
+        type: number
+        format: int
+      nameOfWorkLocation:
+        description: Where's works are doing
         type: string
-      emailAddress:
-        description: адрес электронной почты заявителя
+      averegePieceOfWaterResources:
+        description: Averege piece of water resources
         type: string
-      positionApplicant:
-        description: Должность представителя заявителя
+      weightOfCreatures:
+        description: Weight of creatures
+        type: number
+        format: int
+      sourceOfResources:
+        description: Source of resources
         type: string
+      dateOfFillingTheDocumnet:
+        description: Date of filling the document
+        type: string
+
+
+
       fullName:
         description: имя пользователя
         type: string
@@ -90,5 +126,4 @@ definitions:
        description: id пользователя
        type: number
        format: int
-
 

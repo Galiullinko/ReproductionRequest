@@ -6,24 +6,8 @@ import java.util.Date;
  * Created by Galiullin_ko on 07/04/16.
  */
 public class Document {
+
     private int document_id;
-
-    public int getDocument_id() {
-        return document_id;
-    }
-
-    public void setDocument_id(int document_id) {
-        this.document_id = document_id;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
     private int userId;
     private int yearOfWorks;
     private Goals goal;
@@ -35,7 +19,7 @@ public class Document {
     private int averegePieceOfWaterResources;
     private int weightOfCreatures;
     private String sourceOfResources;
-    private Date dateOfFillingTheApplication;
+    private Date dateOfFillingTheDocument;
 
     public int getYearOfWorks() {
         return yearOfWorks;
@@ -117,12 +101,28 @@ public class Document {
         this.sourceOfResources = sourceOfResources;
     }
 
-    public Date getDateOfFillingTheApplication() {
-        return dateOfFillingTheApplication;
+    public Date getDateOfFillingTheDocument() {
+        return dateOfFillingTheDocument;
     }
 
-    public void setDateOfFillingTheApplication(Date dateOfFillingTheApplication) {
-        this.dateOfFillingTheApplication = dateOfFillingTheApplication;
+    public void setDateOfFillingTheDocument(Date dateOfFillingTheDocument) {
+        this.dateOfFillingTheDocument = dateOfFillingTheDocument;
+    }
+
+    public int getDocument_id() {
+        return document_id;
+    }
+
+    public void setDocument_id(int document_id) {
+        this.document_id = document_id;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -140,7 +140,7 @@ public class Document {
                 ", averegePieceOfWaterResources=" + averegePieceOfWaterResources +
                 ", weightOfCreatures=" + weightOfCreatures +
                 ", sourceOfResources='" + sourceOfResources + '\'' +
-                ", dateOfFillingTheApplication=" + dateOfFillingTheApplication +
+                ", dateOfFillingTheDocument=" + dateOfFillingTheDocument +
                 '}';
     }
 }
