@@ -31,7 +31,7 @@ paths:
       responses:
         # Response code
         200:
-          description: Successful response
+          description: OK
           # A schema describing your response object.
           # Use JSON Schema format
           schema:
@@ -43,7 +43,7 @@ paths:
         - Documents
       parameters:
        - in: body
-         participantId: body
+         userName: body
          description: Add new Document
          required: false
          schema:
@@ -62,9 +62,124 @@ paths:
           description: OK
           schema:
             $ref: "#/definitions/Document"
-
-
-
+  /profile:
+    get:
+      summary: User Profile
+      description: Page of user profile
+      tags:
+        - User
+      responses:
+       "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/User"
+       "405":
+          description: Data is not valid
+  /profile/update:
+    put:
+      tags:
+        - User
+      summary: Update
+      description: Update user's information
+      parameters:
+        - in: body
+          userName: body
+          description: Changed object
+          required: false
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        "404":
+          description: User not found
+        "400":
+          description: Invalid date
+  /logout:
+    get:
+      tags:
+        - User
+      summary: End of session
+      description: "End of current session"
+      responses:
+        default:
+          description: OK
+  /login:
+    get:
+      tags:
+        - User
+      summary: Log in
+      description: "Log in for user"
+      parameters:
+        - in: query
+          userName: userName
+          description: Username/Login
+          required: false
+          type: string
+        - in: query
+          userName: password
+          description: User password
+          required: false
+          type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Invalid login or password
+  /signin:
+    post:
+     tags:
+      - User
+     summary: Sign in
+     description: "Sign in for user "
+     parameters:
+        - in: query
+          userName: userName
+          description: Username/Login
+          required: false
+          type: string
+        - in: query
+          userName: email
+          description: email
+          required: false
+          type: string
+        - in: query
+          userName: city
+          description: User city
+          required: false
+          type: string
+        - in: query
+          userName: age
+          description: User age
+          required: false
+          type: string
+        - in: query
+          userName: gender
+          description: Gender
+          required: false
+          type: string
+        - in: query
+          userName: snils
+          description: User snils
+          required: false
+          type: string
+        - in: query
+          userName: passportData
+          description: Series and number of passport
+          required: false
+          type: string
+        - in: query
+          userName: password
+          description: User password
+          required: false
+          type: string
+     responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "405":
+          description: Invalid data
 
 definitions:
   Documents:
@@ -112,18 +227,35 @@ definitions:
       dateOfFillingTheDocumnet:
         description: Date of filling the document
         type: string
-
-
-
-      fullName:
-        description: имя пользователя
+  User:
+    type: object
+    properties:
+      id:
+        type: number
+        format: int
+        description: PK.
+      userName:
         type: string
-      date:
-        description: дата подачи заявления
+        description: Имя пользователя
+      email:
         type: string
-        format: data
-      idUser:
-       description: id пользователя
-       type: number
-       format: int
+        description: Email пользователя
+      city:
+        type: string
+        description: Город
+      age:
+        type: number
+        format: int32
+        description: Возвраст пользователя
+      gender:
+       type: string
+       description: Возвраст пользователя
+      snils:
+        type: number
+        format: int
+        description: СНИЛС
+      passportData:
+        type: number
+        format: int
+        description: паспортные данные
 
