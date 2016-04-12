@@ -43,7 +43,7 @@ paths:
         - Documents
       parameters:
        - in: body
-         userName: body
+         name: body
          description: Add new Document
          required: false
          schema:
@@ -54,7 +54,14 @@ paths:
   /document/{id}:
     get:
       summary: Get document
-      description: Get document with specified ID
+      description: Get document with specified
+      parameters:
+        - in: path
+          name: id
+          description: ID of the document
+          required: true
+          type: number
+          format: int
       tags:
         - Documents
       responses:
@@ -83,7 +90,7 @@ paths:
       description: Update user's information
       parameters:
         - in: body
-          userName: body
+          name: data
           description: Changed object
           required: false
           schema:
@@ -110,12 +117,12 @@ paths:
       description: "Log in for user"
       parameters:
         - in: query
-          userName: userName
+          name: userName
           description: Username/Login
           required: false
           type: string
         - in: query
-          userName: password
+          name: password
           description: User password
           required: false
           type: string
@@ -129,50 +136,46 @@ paths:
   /signin:
     post:
      tags:
-      - User
+       - User
      summary: Sign in
      description: "Sign in for user "
      parameters:
-        - in: query
-          userName: userName
-          description: Username/Login
-          required: false
-          type: string
-        - in: query
-          userName: email
-          description: email
-          required: false
-          type: string
-        - in: query
-          userName: city
-          description: User city
-          required: false
-          type: string
-        - in: query
-          userName: age
-          description: User age
-          required: false
-          type: string
-        - in: query
-          userName: gender
-          description: Gender
-          required: false
-          type: string
-        - in: query
-          userName: snils
-          description: User snils
-          required: false
-          type: string
-        - in: query
-          userName: passportData
-          description: Series and number of passport
-          required: false
-          type: string
-        - in: query
-          userName: password
-          description: User password
-          required: false
-          type: string
+       - in: query
+         name: userName
+         description: Username/Login
+         required: false
+         type: string
+       - in: query
+         name: email
+         description: email
+         required: false
+         type: string
+       - in: query
+         name: city
+         description: User city
+         required: false
+         type: string
+       - in: query
+         name: age
+         description: User age
+         required: false
+         type: number
+         format: int
+       - in: query
+         name: gender
+         description: Gender
+         required: false
+         type: string
+       - in: query
+         name: snils
+         description: User snils
+         required: false
+         type: string
+       - in: query
+         name: password
+         description: User password
+         required: false
+         type: string
      responses:
         "200":
           description: OK
@@ -233,7 +236,7 @@ definitions:
       id:
         type: number
         format: int
-        description: PK.
+        description: PK
       userName:
         type: string
         description: Имя пользователя

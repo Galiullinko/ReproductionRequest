@@ -1,0 +1,266 @@
+---
+swagger: "2.0"
+info:
+  description: "Making document of reproduction request for water biological resources"
+  version: "1.0.0"
+  title: "Reproduction Request"
+host: "api.reproductionrequest.com"
+basePath: "/v1"
+schemes:
+- "https"
+produces:
+- "application/json"
+paths:
+  /document/{id}:
+    get:
+      tags:
+      - "Documents"
+      summary: "Get document"
+      description: "Get document with specified"
+      operationId: "documentIdGET"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of the document"
+        required: true
+        type: "number"
+        format: "int"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Document"
+      x-swagger-router-controller: "Documents"
+  /documents:
+    get:
+      tags:
+      - "Documents"
+      summary: "List of documents"
+      description: "Gets `Documents` objects.\n"
+      operationId: "documentsGET"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Documents"
+      x-swagger-router-controller: "Documents"
+    post:
+      tags:
+      - "Documents"
+      summary: "New Document"
+      description: "Add new document"
+      operationId: "documentsPOST"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Add new Document"
+        required: false
+        schema:
+          $ref: "#/definitions/Document"
+      responses:
+        405:
+          description: "Data is not valid"
+      x-swagger-router-controller: "Documents"
+  /login:
+    get:
+      tags:
+      - "User"
+      summary: "Log in"
+      description: "Log in for user"
+      operationId: "loginGET"
+      parameters:
+      - name: "userName"
+        in: "query"
+        description: "Username/Login"
+        required: false
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "User password"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "string"
+        400:
+          description: "Invalid login or password"
+      x-swagger-router-controller: "User"
+  /logout:
+    get:
+      tags:
+      - "User"
+      summary: "End of session"
+      description: "End of current session"
+      operationId: "logoutGET"
+      parameters: []
+      responses:
+        default:
+          description: "OK"
+      x-swagger-router-controller: "User"
+  /profile:
+    get:
+      tags:
+      - "User"
+      summary: "User Profile"
+      description: "Page of user profile"
+      operationId: "profileGET"
+      parameters: []
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/User"
+        405:
+          description: "Data is not valid"
+      x-swagger-router-controller: "User"
+  /profile/update:
+    put:
+      tags:
+      - "User"
+      summary: "Update"
+      description: "Update user's information"
+      operationId: "profileUpdatePUT"
+      parameters:
+      - in: "body"
+        name: "data"
+        description: "Changed object"
+        required: false
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        400:
+          description: "Invalid date"
+        404:
+          description: "User not found"
+      x-swagger-router-controller: "User"
+  /signin:
+    post:
+      tags:
+      - "User"
+      summary: "Sign in"
+      description: "Sign in for user "
+      operationId: "signinPOST"
+      parameters:
+      - name: "userName"
+        in: "query"
+        description: "Username/Login"
+        required: false
+        type: "string"
+      - name: "email"
+        in: "query"
+        description: "email"
+        required: false
+        type: "string"
+      - name: "city"
+        in: "query"
+        description: "User city"
+        required: false
+        type: "string"
+      - name: "age"
+        in: "query"
+        description: "User age"
+        required: false
+        type: "string"
+      - name: "gender"
+        in: "query"
+        description: "Gender"
+        required: false
+        type: "string"
+      - name: "snils"
+        in: "query"
+        description: "User snils"
+        required: false
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "User password"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "string"
+        405:
+          description: "Invalid data"
+      x-swagger-router-controller: "User"
+definitions:
+  Documents:
+    type: "array"
+    items:
+      $ref: "#/definitions/Document"
+  Document:
+    type: "object"
+    properties:
+      document_id:
+        type: "number"
+        format: "int"
+        description: "PK"
+      yearOfWorks:
+        type: "number"
+        format: "int"
+        description: "Begining year for works"
+      dateOfEndOfTheWork:
+        type: "string"
+        format: "date"
+        description: "Date of the end of the works"
+      stateOfCreature:
+        type: "string"
+        description: "What state of creature is used"
+      typeOfCreature:
+        type: "string"
+        description: "What type of creature is used"
+      numberOfCreatures:
+        type: "number"
+        format: "int"
+        description: "How many creatures are made"
+      nameOfWorkLocation:
+        type: "string"
+        description: "Where's works are doing"
+      averegePieceOfWaterResources:
+        type: "string"
+        description: "Averege piece of water resources"
+      weightOfCreatures:
+        type: "number"
+        format: "int"
+        description: "Weight of creatures"
+      sourceOfResources:
+        type: "string"
+        description: "Source of resources"
+      dateOfFillingTheDocumnet:
+        type: "string"
+        description: "Date of filling the document"
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "number"
+        format: "int"
+        description: "PK."
+      userName:
+        type: "string"
+        description: "Имя пользователя"
+      email:
+        type: "string"
+        description: "Email пользователя"
+      city:
+        type: "string"
+        description: "Город"
+      age:
+        type: "number"
+        format: "int32"
+        description: "Возвраст пользователя"
+      gender:
+        type: "string"
+        description: "Возвраст пользователя"
+      snils:
+        type: "number"
+        format: "int"
+        description: "СНИЛС"
+      passportData:
+        type: "number"
+        format: "int"
+        description: "паспортные данные"
