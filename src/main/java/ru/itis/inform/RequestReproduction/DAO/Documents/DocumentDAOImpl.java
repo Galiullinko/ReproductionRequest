@@ -1,4 +1,4 @@
-package ru.itis.inform.RequestReproduction.DAO;
+package ru.itis.inform.RequestReproduction.DAO.Documents;
 
 import ru.itis.inform.RequestReproduction.DAO.Models.Document;
 
