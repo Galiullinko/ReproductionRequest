@@ -12,6 +12,7 @@ exports.documentIdGET = function(args, res, next) {
   "dateOfEndOfTheWork" : "2000-01-23T04:56:07.000+0000",
   "weightOfCreatures" : 1.3579000000000001069366817318950779736042022705078125,
   "numberOfCreatures" : 1.3579000000000001069366817318950779736042022705078125,
+  "participant_id" : 1.3579000000000001069366817318950779736042022705078125,
   "nameOfWorkLocation" : "aeiou",
   "dateOfFillingTheDocumnet" : "aeiou",
   "typeOfCreature" : "aeiou",

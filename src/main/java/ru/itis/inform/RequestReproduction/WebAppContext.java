@@ -24,7 +24,7 @@ public class WebAppContext extends WebMvcConfigurerAdapter {
 
         String userName = "galiullin_ko";
         String password ="";
-        String dbUrlL = "jdbc:postgresql://localhost:5432/department";
+        String dbUrlL = "jdbc:postgresql://localhost:5432/ReproductionRequest";
 
         dataSource.setUrl(dbUrlL);
         dataSource.setUsername(userName);

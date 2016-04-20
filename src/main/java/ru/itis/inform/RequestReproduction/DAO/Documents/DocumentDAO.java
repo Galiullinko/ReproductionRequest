@@ -13,22 +13,22 @@ public interface DocumentDAO {
      * @param id id of document
      * @return document by id
      */
-    public Document getDocumentById(int id);
+    Document getDocumentById(int id);
 
     /**
      * Add document in storage
      * @param doc document, which you want to add
      * @return successful of operation
      */
-    public boolean addDocument(Document doc);
+    boolean addDocument(Document doc);
 
     /**
      * Remove document with given id
      * @param id id
      */
-    public void removeDocument(int id);
+    void removeDocument(int id);
 
-    public List<Document> getDocuments();
+    List<Document> getDocuments();
 
 
 }

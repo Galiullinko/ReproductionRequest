@@ -16,7 +16,7 @@ paths:
       tags:
       - "Documents"
       summary: "Get document"
-      description: "Get document with specified"
+      description: "Get document with specified id"
       operationId: "documentIdGET"
       parameters:
       - name: "id"
@@ -31,6 +31,26 @@ paths:
           schema:
             $ref: "#/definitions/Document"
       x-swagger-router-controller: "Documents"
+  /document/{id}/participant:
+    get:
+      tags:
+      - "Participants"
+      summary: "Get participant of document"
+      description: "Get participant of document with specified id"
+      operationId: "documentIdParticipantGET"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "ID of document"
+        required: true
+        type: "number"
+        format: "int"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Participant"
+      x-swagger-router-controller: "Participants"
   /documents:
     get:
       tags:
@@ -65,7 +85,7 @@ paths:
   /login:
     get:
       tags:
-      - "User"
+      - "Users"
       summary: "Log in"
       description: "Log in for user"
       operationId: "loginGET"
@@ -87,11 +107,11 @@ paths:
             type: "string"
         400:
           description: "Invalid login or password"
-      x-swagger-router-controller: "User"
+      x-swagger-router-controller: "Users"
   /logout:
     get:
       tags:
-      - "User"
+      - "Users"
       summary: "End of session"
       description: "End of current session"
       operationId: "logoutGET"
@@ -99,11 +119,11 @@ paths:
       responses:
         default:
           description: "OK"
-      x-swagger-router-controller: "User"
+      x-swagger-router-controller: "Users"
   /profile:
     get:
       tags:
-      - "User"
+      - "Users"
       summary: "User Profile"
       description: "Page of user profile"
       operationId: "profileGET"
@@ -115,11 +135,11 @@ paths:
             $ref: "#/definitions/User"
         405:
           description: "Data is not valid"
-      x-swagger-router-controller: "User"
+      x-swagger-router-controller: "Users"
   /profile/update:
     put:
       tags:
-      - "User"
+      - "Users"
       summary: "Update"
       description: "Update user's information"
       operationId: "profileUpdatePUT"
@@ -135,11 +155,11 @@ paths:
           description: "Invalid date"
         404:
           description: "User not found"
-      x-swagger-router-controller: "User"
+      x-swagger-router-controller: "Users"
   /signin:
     post:
       tags:
-      - "User"
+      - "Users"
       summary: "Sign in"
       description: "Sign in for user "
       operationId: "signinPOST"
@@ -163,7 +183,8 @@ paths:
         in: "query"
         description: "User age"
         required: false
-        type: "string"
+        type: "number"
+        format: "int"
       - name: "gender"
         in: "query"
         description: "Gender"
@@ -186,12 +207,8 @@ paths:
             type: "string"
         405:
           description: "Invalid data"
-      x-swagger-router-controller: "User"
+      x-swagger-router-controller: "Users"
 definitions:
-  Documents:
-    type: "array"
-    items:
-      $ref: "#/definitions/Document"
   Document:
     type: "object"
     properties:
@@ -199,6 +216,10 @@ definitions:
         type: "number"
         format: "int"
         description: "PK"
+      participant_id:
+        type: "number"
+        format: "int"
+        description: "FK"
       yearOfWorks:
         type: "number"
         format: "int"
@@ -233,34 +254,70 @@ definitions:
       dateOfFillingTheDocumnet:
         type: "string"
         description: "Date of filling the document"
+  Documents:
+    type: "array"
+    items:
+      $ref: "#/definitions/Document"
   User:
     type: "object"
     properties:
-      id:
+      user_id:
         type: "number"
         format: "int"
-        description: "PK."
-      userName:
+        description: "PK"
+      name:
         type: "string"
-        description: "Имя пользователя"
+        description: "User name"
+      surname:
+        type: "string"
+        description: "User surname"
+      patronymic:
+        type: "string"
+        description: "User patronymic"
       email:
         type: "string"
-        description: "Email пользователя"
-      city:
+        description: "User email"
+      phone:
         type: "string"
-        description: "Город"
-      age:
-        type: "number"
-        format: "int32"
-        description: "Возвраст пользователя"
-      gender:
-        type: "string"
-        description: "Возвраст пользователя"
-      snils:
+        description: "User phone number"
+      seriesOfThePassport:
         type: "number"
         format: "int"
-        description: "СНИЛС"
-      passportData:
+        description: "Series of the user's passport"
+      numberOfThePassport:
         type: "number"
         format: "int"
-        description: "паспортные данные"
+        description: "Number of the user's passport"
+  Participant:
+    type: "object"
+    properties:
+      participant_id:
+        type: "number"
+        format: "int"
+        description: "PK"
+      isIE:
+        type: "boolean"
+        description: "Is participant individual entrepreneur?"
+      nameOfIE:
+        type: "string"
+        description: "Name of individual entrepreneur"
+      surnameOfIE:
+        type: "string"
+        description: "Surame of individual entrepreneur"
+      partonymicOfIE:
+        type: "string"
+        description: "Patronymic of individual entrepreneur"
+      nameOfEntity:
+        type: "string"
+        description: "Name of legal entity"
+      idOfTaxpayer:
+        type: "number"
+        format: "int"
+        description: "Taxpayer's id of legal entity"
+      location:
+        type: "string"
+        description: "Location of legal entity"
+      mainStateRegistrationNumber:
+        type: "number"
+        format: "int"
+        description: "Main state regisration number of legal entity"
