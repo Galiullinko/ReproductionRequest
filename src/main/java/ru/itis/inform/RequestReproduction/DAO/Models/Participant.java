@@ -4,7 +4,7 @@ package ru.itis.inform.RequestReproduction.DAO.Models;
  * Created by Galiullin_ko on 09/04/16.
  */
 public class Participant {
-    private User user = null;
+    private int userId;
     private boolean isIE;
     private String nameOfEntity;
     private String idOfTaxpayer;
@@ -71,12 +71,12 @@ public class Participant {
         this.patronymicOfIE = patronymicOfIE;
     }
 
-    public User getUser() {
-        return user;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(int user) {
+        this.userId = user;
     }
 
     public boolean isIE() {

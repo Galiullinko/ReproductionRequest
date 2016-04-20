@@ -7,8 +7,8 @@ import java.util.Date;
  */
 public class Document {
 
-    private int document_id;
-    private Participant participant = null;
+    private int documentId;
+    private int participantId;
     private int yearOfWorks;
     private Goal goal;
     private Date dateOfEndOfTheWork;
@@ -109,27 +109,27 @@ public class Document {
         this.dateOfFillingTheDocument = dateOfFillingTheDocument;
     }
 
-    public int getDocument_id() {
-        return document_id;
+    public int getDocumentId() {
+        return documentId;
     }
 
-    public void setDocument_id(int document_id) {
-        this.document_id = document_id;
+    public void setDocumentId(int document_id) {
+        this.documentId = document_id;
     }
 
-    public Participant getParticipant() {
-        return participant;
+    public int getParticipantId() {
+        return participantId;
     }
 
-    public void setParticipant(Participant participant) {
-        this.participant = participant;
+    public void setParticipantId(int participant) {
+        this.participantId = participant;
     }
 
     @Override
     public String toString() {
         return "Document{" +
-                "document_id=" + document_id +
-                ", participant=" + participant +
+                "document_id=" + documentId +
+                ", participant_id=" + participantId +
                 ", yearOfWorks=" + yearOfWorks +
                 ", goal=" + goal +
                 ", dateOfEndOfTheWork=" + dateOfEndOfTheWork +
