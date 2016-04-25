@@ -28,7 +28,7 @@ public interface DocumentDAO {
      */
     void removeDocument(int id);
 
-    List<Document> getDocuments();
+    List<Document> getDocuments(int userId);
 
 
 }

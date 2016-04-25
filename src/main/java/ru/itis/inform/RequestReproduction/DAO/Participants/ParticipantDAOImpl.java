@@ -8,6 +8,7 @@ import java.util.List;
  * Created by Galiullin_ko on 20/04/16.
  */
 public class ParticipantDAOImpl implements ParticipantDAO {
+    //TODO
     @Override
     public Participant getParticipantById(int id) {
         return null;

@@ -10,7 +10,7 @@ public class Document {
     private int documentId;
     private int participantId;
     private int yearOfWorks;
-    private Goal goal;
+    private String goal;
     private Date dateOfEndOfTheWork;
     private String stateOfCreature;
     private String typeOfCreature;
@@ -21,6 +21,22 @@ public class Document {
     private String sourceOfResources;
     private Date dateOfFillingTheDocument;
 
+    public Document(int documentId, int participantId, int yearOfWorks, String goal, Date dateOfEndOfTheWork, String stateOfCreature, String typeOfCreature, int numberOfCreatures, String nameOfWorkLocation, int averegePieceOfWaterResources, int weightOfCreatures, String sourceOfResources, Date dateOfFillingTheDocument) {
+        this.documentId = documentId;
+        this.participantId = participantId;
+        this.yearOfWorks = yearOfWorks;
+        this.goal = goal;
+        this.dateOfEndOfTheWork = dateOfEndOfTheWork;
+        this.stateOfCreature = stateOfCreature;
+        this.typeOfCreature = typeOfCreature;
+        this.numberOfCreatures = numberOfCreatures;
+        this.nameOfWorkLocation = nameOfWorkLocation;
+        this.averegePieceOfWaterResources = averegePieceOfWaterResources;
+        this.weightOfCreatures = weightOfCreatures;
+        this.sourceOfResources = sourceOfResources;
+        this.dateOfFillingTheDocument = dateOfFillingTheDocument;
+    }
+
     public int getYearOfWorks() {
         return yearOfWorks;
     }
@@ -29,11 +45,11 @@ public class Document {
         this.yearOfWorks = yearOfWorks;
     }
 
-    public Goal getGoal() {
+    public String getGoal() {
         return goal;
     }
 
-    public void setGoal(Goal goal) {
+    public void setGoal(String goal) {
         this.goal = goal;
     }
 
