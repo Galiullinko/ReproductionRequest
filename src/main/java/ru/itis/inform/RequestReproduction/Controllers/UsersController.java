@@ -35,7 +35,6 @@ public class UsersController {
 
     @RequestMapping(value = "/documents", method = RequestMethod.GET)
     public DocumentsDTO getDocuments(@RequestBody TokenDTO tokenDTO) {
-        tokensService.
-        return
+        return null;
     }
 }

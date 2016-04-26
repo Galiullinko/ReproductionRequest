@@ -3,6 +3,7 @@ package ru.itis.inform.RequestReproduction.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.itis.inform.RequestReproduction.dao.exceptions.DocumentNotFoundException;
 import ru.itis.inform.RequestReproduction.dao.exceptions.ParticipantNotFoundException;
+import ru.itis.inform.RequestReproduction.dao.exceptions.TokenNotFoundException;
 import ru.itis.inform.RequestReproduction.dao.exceptions.UserNotFoundException;
 import ru.itis.inform.RequestReproduction.dao.jdbc.ParamsMapper;
 import ru.itis.inform.RequestReproduction.dao.jdbc.SQLQueryExecutor;
@@ -24,6 +25,9 @@ public class DAOArgumentsVerifierImpl implements DAOArgumentsVerifier {
     //language=SQL
     private static final String SQL_COUNT_PARTICIPANTS_BY_ID =
             "SELECT COUNT(*) FROM participants WHERE (id = :participantId)";
+    //language=SQL
+    private static final String SQL_COUNT_TOKENS_BY_ID=
+            "SELECT COUNT(*) FROM tokens WHERE (token = :token)";
 
     @Autowired
     private SQLQueryExecutor sqlQueryExecutor;
@@ -58,7 +62,14 @@ public class DAOArgumentsVerifierImpl implements DAOArgumentsVerifier {
         if (participantCount != 1){
             throw new ParticipantNotFoundException(participantId);
         }
+    }
 
-
+    @Override
+    public void verifyToken(String token) {
+        Map<String, Object> paranMap = paramsMapper.asMap(asList("token"), asList(token));
+        int tokenCount = sqlQueryExecutor.queryForInt(SQL_COUNT_TOKENS_BY_ID,paranMap);
+        if (tokenCount != 1) {
+            throw new TokenNotFoundException(token);
+        }
     }
 }
