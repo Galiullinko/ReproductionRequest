@@ -1,4 +1,4 @@
-package ru.itis.inform.RequestReproduction.DAO.Exceptions;
+package ru.itis.inform.RequestReproduction.dao.exceptions;
 
 /**
  * Created by Galiullin_ko on 18/04/16.

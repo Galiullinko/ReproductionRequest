@@ -1,6 +1,6 @@
-package ru.itis.inform.RequestReproduction.Services;
+package ru.itis.inform.RequestReproduction.services;
 
-import ru.itis.inform.RequestReproduction.DAO.Models.Participant;
+import ru.itis.inform.RequestReproduction.dao.models.Participant;
 
 import java.util.List;
 

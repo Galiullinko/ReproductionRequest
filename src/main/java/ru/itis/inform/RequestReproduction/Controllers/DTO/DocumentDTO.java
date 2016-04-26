@@ -1,9 +1,7 @@
-package ru.itis.inform.RequestReproduction.Controllers.DTO;
+package ru.itis.inform.RequestReproduction.controllers.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import ru.itis.inform.RequestReproduction.DAO.Models.Document;
-import ru.itis.inform.RequestReproduction.DAO.Models.Goal;
-import ru.itis.inform.RequestReproduction.DAO.Models.Participant;
+import ru.itis.inform.RequestReproduction.dao.models.Document;
 
 import java.util.Date;
 
@@ -15,7 +13,7 @@ public class DocumentDTO {
     private int documentId;
     private int participantId;
     private int yearOfWorks;
-    private Goal goal;
+    private String goal;
     private Date dateOfEndOfTheWork;
 
     private String stateOfCreature;
@@ -55,7 +53,7 @@ public class DocumentDTO {
         return yearOfWorks;
     }
 
-    public Goal getGoal() {
+    public String getGoal() {
         return goal;
     }
 

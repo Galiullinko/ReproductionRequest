@@ -1,4 +1,4 @@
-package ru.itis.inform.RequestReproduction.Controllers.DTO.Converters;
+package ru.itis.inform.RequestReproduction.controllers.dto.Converters;
 
 /**
  * Created by Galiullin_ko on 20/04/16.

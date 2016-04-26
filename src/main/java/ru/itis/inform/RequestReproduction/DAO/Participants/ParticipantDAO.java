@@ -1,16 +1,16 @@
-package ru.itis.inform.RequestReproduction.DAO.Participants;
+package ru.itis.inform.RequestReproduction.dao.participants;
 
-import ru.itis.inform.RequestReproduction.DAO.Models.Participant;
+import ru.itis.inform.RequestReproduction.dao.models.Participant;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 /**
  * Created by Galiullin_ko on 20/04/16.
  */
 public interface ParticipantDAO {
     Participant getParticipantById(int id);
-    List<Participant> getPartcipants();
+    List<Participant> getParticipants(int id);
     Participant getParticipantByDocument(int id);
+    void addParticipant(Participant participant);
     void destroy(int id);
 }

@@ -1,8 +1,8 @@
-package ru.itis.inform.RequestReproduction.Services;
+package ru.itis.inform.RequestReproduction.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.itis.inform.RequestReproduction.DAO.Documents.DocumentDAO;
-import ru.itis.inform.RequestReproduction.DAO.Models.Document;
+import ru.itis.inform.RequestReproduction.dao.documents.DocumentDAO;
+import ru.itis.inform.RequestReproduction.dao.models.Document;
 
 import java.util.List;
 
@@ -19,6 +19,6 @@ public class DocumentServiceImpl implements DocumentService {
 
     @Override
     public List<Document> getDocuments() {
-        return documentDAO.getDocuments();
+        return documentDAO.getDocuments(1);
     }
 }

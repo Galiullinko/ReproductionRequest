@@ -1,11 +1,11 @@
-package ru.itis.inform.RequestReproduction.DAO.Documents;
+package ru.itis.inform.RequestReproduction.dao.documents;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
-import ru.itis.inform.RequestReproduction.DAO.DAOArgumentsVerifier;
-import ru.itis.inform.RequestReproduction.DAO.JDBC.ParamsMapper;
-import ru.itis.inform.RequestReproduction.DAO.JDBC.SQLQueryExecutor;
-import ru.itis.inform.RequestReproduction.DAO.Models.Document;
+import ru.itis.inform.RequestReproduction.dao.DAOArgumentsVerifier;
+import ru.itis.inform.RequestReproduction.dao.jdbc.ParamsMapper;
+import ru.itis.inform.RequestReproduction.dao.jdbc.SQLQueryExecutor;
+import ru.itis.inform.RequestReproduction.dao.models.Document;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,12 +27,9 @@ public class DocumentDAOImpl implements DocumentDAO {
     private SQLQueryExecutor sqlQueryExecutor;
 
     // language=SQL
-    public static final String SQL_GET_DOCUMENT_BY_ID = "SELECT * FROM document WHERE (id = :documentId)";
+    public static final String GET_DOCUMENT_BY_ID = "SELECT * FROM document WHERE (id = :documentId)";
     // language=SQL
-    public static final String SQL_GET_LIST_OF_DOCUMENTS = "SELECT * FROM document WHERE (userid = :userId)";
-
-
-
+    public static final String GET_DOCUMENTS = "SELECT * FROM document WHERE (userid = :userId)";
 
 
 
@@ -56,7 +53,7 @@ public class DocumentDAOImpl implements DocumentDAO {
     public List<Document> getDocuments(int userId) {
         daoArgumentsVerifier.verifyUser(userId);
         Map<String, Object> paramMap = paramsMapper.asMap(asList("userId"), asList(userId));
-        return sqlQueryExecutor.queryForObjects(SQL_GET_LIST_OF_DOCUMENTS, paramMap, DOCUMENT_ROW_MAPPER);
+        return sqlQueryExecutor.queryForObjects(GET_DOCUMENTS, paramMap, DOCUMENT_ROW_MAPPER);
 
     }
 
@@ -64,7 +61,7 @@ public class DocumentDAOImpl implements DocumentDAO {
     public Document getDocumentById(int documentId) {
         daoArgumentsVerifier.verifyDocument(documentId);
         Map<String, Object> paramMap = paramsMapper.asMap(asList("documentId"), asList(documentId));
-        return sqlQueryExecutor.queryForObject(SQL_GET_DOCUMENT_BY_ID, paramMap, DOCUMENT_ROW_MAPPER);
+        return sqlQueryExecutor.queryForObject(GET_DOCUMENT_BY_ID, paramMap, DOCUMENT_ROW_MAPPER);
 
     }
 

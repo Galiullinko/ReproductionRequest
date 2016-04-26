@@ -1,6 +1,6 @@
-package ru.itis.inform.RequestReproduction.DAO.Documents;
+package ru.itis.inform.RequestReproduction.dao.documents;
 
-import ru.itis.inform.RequestReproduction.DAO.Models.Document;
+import ru.itis.inform.RequestReproduction.dao.models.Document;
 
 import java.util.List;
 

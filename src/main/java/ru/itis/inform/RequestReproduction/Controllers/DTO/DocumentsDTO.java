@@ -1,10 +1,8 @@
-package ru.itis.inform.RequestReproduction.Controllers.DTO;
+package ru.itis.inform.RequestReproduction.controllers.dto;
 
-import ru.itis.inform.RequestReproduction.DAO.Models.Document;
+import ru.itis.inform.RequestReproduction.dao.models.Document;
 
-import javax.print.Doc;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**

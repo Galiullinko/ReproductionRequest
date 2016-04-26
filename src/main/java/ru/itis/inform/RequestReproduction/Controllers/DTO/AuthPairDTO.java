@@ -1,6 +1,6 @@
-package ru.itis.inform.RequestReproduction.Controllers.DTO;
+package ru.itis.inform.RequestReproduction.controllers.dto;
 
-import ru.itis.inform.RequestReproduction.DAO.Models.AuthPair;
+import ru.itis.inform.RequestReproduction.dao.models.AuthPair;
 
 /**
  * Created by Galiullin_ko on 25/04/16.

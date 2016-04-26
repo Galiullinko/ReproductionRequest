@@ -1,4 +1,4 @@
-package ru.itis.inform.RequestReproduction.DAO.JDBC;
+package ru.itis.inform.RequestReproduction.dao.jdbc;
 
 import java.util.HashMap;
 import java.util.List;

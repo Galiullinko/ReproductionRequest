@@ -1,7 +1,6 @@
-package ru.itis.inform.RequestReproduction.Controllers.DTO;
+package ru.itis.inform.RequestReproduction.controllers.dto;
 
-import ru.itis.inform.RequestReproduction.DAO.Models.Document;
-import ru.itis.inform.RequestReproduction.DAO.Models.Participant;
+import ru.itis.inform.RequestReproduction.dao.models.Participant;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ru.itis.inform.RequestReproduction.DAO;
+package ru.itis.inform.RequestReproduction.dao;
 
 /**
  * Created by Galiullin_ko on 18/04/16.

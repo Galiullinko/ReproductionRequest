@@ -1,9 +1,10 @@
-package ru.itis.inform.RequestReproduction.DAO.Models;
+package ru.itis.inform.RequestReproduction.dao.models;
 
 /**
  * Created by Galiullin_ko on 09/04/16.
  */
 public class Participant {
+    private int participantId;
     private int userId;
     private boolean isIE;
     private String nameOfEntity;
@@ -14,6 +15,26 @@ public class Participant {
     private String surnameOfIE;
     private String patronymicOfIE;
 
+    public Participant(int participantId, int userId, boolean isIE, String nameOfEntity, String idOfTaxpayer, String location, String mainStateRegistrationNumber, String nameOfIE, String surnameOfIE, String patronymicOfIE) {
+        this.participantId = participantId;
+        this.userId = userId;
+        this.isIE = isIE;
+        this.nameOfEntity = nameOfEntity;
+        this.idOfTaxpayer = idOfTaxpayer;
+        this.location = location;
+        this.mainStateRegistrationNumber = mainStateRegistrationNumber;
+        this.nameOfIE = nameOfIE;
+        this.surnameOfIE = surnameOfIE;
+        this.patronymicOfIE = patronymicOfIE;
+    }
+
+    public int getParticipantId() {
+        return participantId;
+    }
+
+    public void setParticipantId(int participantId) {
+        this.participantId = participantId;
+    }
 
     public String getNameOfEntity() {
         return nameOfEntity;

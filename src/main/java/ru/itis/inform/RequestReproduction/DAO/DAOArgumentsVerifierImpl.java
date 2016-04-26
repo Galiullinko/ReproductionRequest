@@ -1,11 +1,11 @@
-package ru.itis.inform.RequestReproduction.DAO;
+package ru.itis.inform.RequestReproduction.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.itis.inform.RequestReproduction.DAO.Exceptions.DocumentNotFoundException;
-import ru.itis.inform.RequestReproduction.DAO.Exceptions.ParticipantNotFoundException;
-import ru.itis.inform.RequestReproduction.DAO.Exceptions.UserNotFoundException;
-import ru.itis.inform.RequestReproduction.DAO.JDBC.ParamsMapper;
-import ru.itis.inform.RequestReproduction.DAO.JDBC.SQLQueryExecutor;
+import ru.itis.inform.RequestReproduction.dao.exceptions.DocumentNotFoundException;
+import ru.itis.inform.RequestReproduction.dao.exceptions.ParticipantNotFoundException;
+import ru.itis.inform.RequestReproduction.dao.exceptions.UserNotFoundException;
+import ru.itis.inform.RequestReproduction.dao.jdbc.ParamsMapper;
+import ru.itis.inform.RequestReproduction.dao.jdbc.SQLQueryExecutor;
 
 import java.util.Map;
 

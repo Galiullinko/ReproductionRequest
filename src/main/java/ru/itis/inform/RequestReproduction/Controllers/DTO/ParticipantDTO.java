@@ -1,7 +1,7 @@
-package ru.itis.inform.RequestReproduction.Controllers.DTO;
+package ru.itis.inform.RequestReproduction.controllers.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import ru.itis.inform.RequestReproduction.DAO.Models.Participant;
+import ru.itis.inform.RequestReproduction.dao.models.Participant;
 
 /**
  * Created by Galiullin_ko on 20/04/16.

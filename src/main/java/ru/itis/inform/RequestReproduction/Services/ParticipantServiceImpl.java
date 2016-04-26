@@ -1,8 +1,8 @@
-package ru.itis.inform.RequestReproduction.Services;
+package ru.itis.inform.RequestReproduction.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.itis.inform.RequestReproduction.DAO.Models.Participant;
-import ru.itis.inform.RequestReproduction.DAO.Participants.ParticipantDAO;
+import ru.itis.inform.RequestReproduction.dao.models.Participant;
+import ru.itis.inform.RequestReproduction.dao.participants.ParticipantDAO;
 
 import java.util.List;
 
@@ -20,6 +20,6 @@ public class ParticipantServiceImpl implements ParticipantService {
 
     @Override
     public List<Participant> getParticipants() {
-        return participantDAO.getPartcipants();
+        return participantDAO.getParticipants(1);
     }
 }

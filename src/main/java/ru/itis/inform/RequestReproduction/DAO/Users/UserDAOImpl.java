@@ -1,4 +1,4 @@
-package ru.itis.inform.RequestReproduction.DAO.Users;
+package ru.itis.inform.RequestReproduction.dao.users;
 
 /**
  * Created by Galiullin_ko on 09/04/16.
