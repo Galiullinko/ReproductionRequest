@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import ru.itis.inform.RequestReproduction.controllers.dto.Converters.DTOConverter;
+import ru.itis.inform.RequestReproduction.controllers.dto.converters.DTOConverter;
 import ru.itis.inform.RequestReproduction.controllers.dto.DocumentsDTO;
 import ru.itis.inform.RequestReproduction.controllers.dto.TokenDTO;
 import ru.itis.inform.RequestReproduction.services.*;
@@ -35,6 +35,7 @@ public class UsersController {
 
     @RequestMapping(value = "/documents", method = RequestMethod.GET)
     public DocumentsDTO getDocuments(@RequestBody TokenDTO tokenDTO) {
-        return null;
+        tokensService.verifyToken(tokenDTO.getToken());
+        return converter.getDocumentsDTO(documentService.getDocuments());
     }
 }

@@ -1,6 +1,7 @@
 package ru.itis.inform.RequestReproduction.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import ru.itis.inform.RequestReproduction.dao.exceptions.DocumentNotFoundException;
 import ru.itis.inform.RequestReproduction.dao.exceptions.ParticipantNotFoundException;
 import ru.itis.inform.RequestReproduction.dao.exceptions.TokenNotFoundException;
@@ -15,6 +16,7 @@ import static java.util.Arrays.asList;
 /**
  * Created by Galiullin_ko on 18/04/16.
  */
+@Component
 public class DAOArgumentsVerifierImpl implements DAOArgumentsVerifier {
     //language=SQL
     private static final String SQL_COUNT_USERS_BY_ID =

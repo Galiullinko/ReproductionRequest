@@ -13,6 +13,17 @@ public class User {
     private String phoneNumber;
     private String email;
 
+    public User(int userId, String name, String surname, String patronymic, String seriesOfThePassport, String numberOfThePassport, String phoneNumber, String email) {
+        this.userId = userId;
+        this.name = name;
+        this.surname = surname;
+        this.patronymic = patronymic;
+        this.seriesOfThePassport = seriesOfThePassport;
+        this.numberOfThePassport = numberOfThePassport;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
+
     public int getUserId() {
         return userId;
     }

@@ -2,6 +2,7 @@ package ru.itis.inform.RequestReproduction.dao.tokens;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 import ru.itis.inform.RequestReproduction.dao.DAOArgumentsVerifier;
 import ru.itis.inform.RequestReproduction.dao.exceptions.BadUserInAuthPairException;
 import ru.itis.inform.RequestReproduction.dao.jdbc.ParamsMapper;
@@ -19,6 +20,7 @@ import static java.util.Arrays.asList;
 /**
  * Created by Galiullin_ko on 25/04/16.
  */
+@Component
 public class TokensDAOImpl implements TokenDAO {
     @Autowired
     ParamsMapper paramsMapper;
@@ -63,7 +65,7 @@ public class TokensDAOImpl implements TokenDAO {
     }
 
     @Override
-    public void vefifyToken(String token) {
+    public void verifyToken(String token) {
         daoArgumentsVerifier.verifyToken(token);
 
     }

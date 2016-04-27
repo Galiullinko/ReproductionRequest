@@ -11,5 +11,5 @@ import ru.itis.inform.RequestReproduction.dao.models.User;
 public interface TokenDAO {
     void setToken(User user, AuthPair authPair);
     Token getToken(int userId);
-    void vefifyToken(String token);
+    void verifyToken(String token);
 }

@@ -2,6 +2,7 @@ package ru.itis.inform.RequestReproduction.dao.documents;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 import ru.itis.inform.RequestReproduction.dao.DAOArgumentsVerifier;
 import ru.itis.inform.RequestReproduction.dao.jdbc.ParamsMapper;
 import ru.itis.inform.RequestReproduction.dao.jdbc.SQLQueryExecutor;
@@ -17,8 +18,8 @@ import static java.util.Arrays.asList;
 /**
  * Created by Galiullin_ko on 09/04/16.
  */
+@Component
 public class DocumentDAOImpl implements DocumentDAO {
-//TODO
     @Autowired
     DAOArgumentsVerifier daoArgumentsVerifier;
     @Autowired

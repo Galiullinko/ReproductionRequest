@@ -20,10 +20,10 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   name VARCHAR (100),
   patronymic VARCHAR(100),
-  email VARCHAR (100),
+  seriesOfThePassport VARCHAR(100),
+  numberOfThePassport VARCHAR(100),
   phoneNumber VARCHAR(100),
-  seriesOfThePassport INT,
-  numberOfThePassport INT
+  email VARCHAR (100)
 );
 
 CREATE TABLE participants (
@@ -41,4 +41,20 @@ CREATE TABLE participants (
 
   FOREIGN KEY (documentId) REFERENCES documents(id),
   FOREIGN KEY (userId) REFERENCES users(id)
+);
+
+CREATE TABLE tokens (
+  id SERIAL PRIMARY KEY ,
+  userId int,
+  token VARCHAR (100),
+
+  FOREIGN KEY (userId) REFERENCES  users(id)
+);
+
+CREATE TABLE authpairs(
+  userId int PRIMARY KEY,
+  login VARCHAR (100),
+  password VARCHAR (100),
+
+  FOREIGN  KEY (userId) REFERENCES users(id)
 );
