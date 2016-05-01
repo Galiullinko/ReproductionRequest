@@ -55,7 +55,7 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public void addUser(User user) {
         daoArgumentsVerifier.verifyUser(user.getUserId());
-        Map<String, Object> paramMap = paramsMapper.asMap(asList("id", "userName", "email", "city", "age", "gender", "passportData", "snils"),
+        Map<String, Object> paramMap = paramsMapper.asMap(asList("userid", "name", "surname", "patronymic", "seriesofthepassport", "numberofthepassport", "phonenumber", "email"),
                 asList(user.getUserId(),user.getName(), user.getSurname(), user.getPatronymic(),
                         user.getSeriesOfThePassport(), user.getNumberOfThePassport(), user.getPhoneNumber(), user.getEmail()));
         sqlQueryExecutor.updateQuery(SQL_INSERT_USER_INTO_USERS, paramMap);

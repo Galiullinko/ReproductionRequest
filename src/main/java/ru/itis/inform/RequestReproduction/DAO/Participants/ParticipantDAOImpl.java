@@ -28,10 +28,10 @@ public class ParticipantDAOImpl implements ParticipantDAO {
     SQLQueryExecutor sqlQueryExecutor;
 
     // language=SQL
-    public static final String GET_PARTICIPANTS = "SELECT * FROM participant WHERE (documentid = :documentId) ";
+    public static final String GET_PARTICIPANTS = "SELECT * FROM participants WHERE (documentid = :documentId) ";
     // language=SQL
     public static  final String ADD_PARTICIPANT =
-            "INSERT INTO participant VALUES (:id, :fullName, :education, :placeOfWork, :positionAtWork, :documentId)";
+            "INSERT INTO participants VALUES (:participantId, :userId, :isIE, :nameOfEntity, :idOfTaxpayer, :location, :mainStateRegistartionNumber, :nameOfIE, :surnameOfIE, :patronymicOfIE)";
 
     static final RowMapper<Participant> PARTICIPANTS_ROW_MAPPER = new RowMapper<Participant>() {
         @Override

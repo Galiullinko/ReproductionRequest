@@ -1,5 +1,7 @@
 package ru.itis.inform.RequestReproduction.dao.jdbc;
 
+import org.springframework.stereotype.Component;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +9,7 @@ import java.util.Map;
 /**
  * Created by Galiullin_ko on 09.04.16.
  */
+@Component
 public class ParamsMapperImpl implements ParamsMapper{
 
     @Override
