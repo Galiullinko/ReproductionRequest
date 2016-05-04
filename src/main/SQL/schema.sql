@@ -1,5 +1,6 @@
 CREATE TABLE documents (
   id SERIAL PRIMARY KEY,
+  userId INT,
   yearOfWorks INT,
   goal VARCHAR(100),
   dateOfEndOfTheWork DATE,
@@ -11,9 +12,15 @@ CREATE TABLE documents (
   weightOfCreatures INT,
   sourceOfResources VARCHAR(100),
   dateOfFillingTheDocument DATE,
-  participantId INT,
+  nameOfEntity VARCHAR (100),
+  idOfTaxpayer INT,
+  location VARCHAR (100),
+  mainStateRegistrationNumber VARCHAR(100),
+  nameOfIE VARCHAR(100),
+  surnameOfIE VARCHAR(100),
+  patronymicOfIE VARCHAR(100),
 
-  FOREIGN KEY (participantId) REFERENCES participants(id)
+  FOREIGN KEY (userId) REFERENCES users(id)
 );
 
 CREATE TABLE users (
@@ -26,22 +33,6 @@ CREATE TABLE users (
   email VARCHAR (100)
 );
 
-CREATE TABLE participants (
-  id SERIAL PRIMARY KEY,
-  documentId INT,
-  userId INT,
-  isIE BIT,
-  nameOfEntity VARCHAR (100),
-  idOfTaxpayer INT,
-  location VARCHAR (100),
-  mainStateRegistrationNumber VARCHAR(100),
-  nameOfIE VARCHAR(100),
-  surnameOfIE VARCHAR(100),
-  patronymicOfIE VARCHAR(100),
-
-  FOREIGN KEY (documentId) REFERENCES documents(id),
-  FOREIGN KEY (userId) REFERENCES users(id)
-);
 
 CREATE TABLE tokens (
   id SERIAL PRIMARY KEY ,

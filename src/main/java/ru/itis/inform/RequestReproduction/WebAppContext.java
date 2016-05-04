@@ -16,19 +16,19 @@ import java.net.URISyntaxException;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan("ru.itis.inform.RequestReproduction")
+@ComponentScan(value = {"ru.itis.inform.RequestReproduction", "ru.itis.inform.RequestReproduction.controllers.dto.converters"})
 public class WebAppContext extends WebMvcConfigurerAdapter {
     @Bean
     public DataSource dataSource() throws URISyntaxException {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-
-        String userName = "galiullin_ko";
-        String password ="";
+        String userName = "Galiullin_ko";
+        String password ="c1337.ae";
         String dbUrlL = "jdbc:postgresql://localhost:5432/ReproductionRequest";
 
         dataSource.setUrl(dbUrlL);
         dataSource.setUsername(userName);
         dataSource.setPassword(password);
+        dataSource.setDriverClassName("org.postgresql.Driver");
 
         return dataSource;
 

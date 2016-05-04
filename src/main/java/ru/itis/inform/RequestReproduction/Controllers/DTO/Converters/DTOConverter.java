@@ -12,13 +12,11 @@ import java.util.Map;
 public interface DTOConverter {
     DocumentDTO getDocumentDTO(Document entity);
     DocumentsDTO getDocumentsDTO(List<Document> entities);
-    ParticipantsDTO getParticipantsDTO(List<Participant> entities);
     AuthPairDTO getAuthPairDTO(AuthPair entity);
     TokenDTO getTokenDTO(Token entity);
     //из dto модель
     Map<String, Integer> getIdsAsIntegerMap();
     Document getDocumentDAO(DocumentDTO dto);
-    Participant getParticipantDAO(ParticipantDTO dto);
     User getUserDAO (UserDTO dto);
     AuthPair getAuthPairDAO(AuthPairDTO dto);
     Token getTokenDTO(TokenDTO dto);

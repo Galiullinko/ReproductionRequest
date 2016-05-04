@@ -26,12 +26,6 @@ public class DTOConverterImpl implements DTOConverter {
         return dto;
     }
 
-    @Override
-    public ParticipantsDTO getParticipantsDTO(List<Participant> entities) {
-        ParticipantsDTO dto = new ParticipantsDTO();
-        dto.addDocuments(entities);
-        return dto;
-    }
 
     @Override
     public AuthPairDTO getAuthPairDTO(AuthPair entity) {
@@ -56,17 +50,11 @@ public class DTOConverterImpl implements DTOConverter {
                 dto.getYearOfWorks(), dto.getGoal(), dto.getDateOfEndOfTheWork(), dto.getStateOfCreature(),
                 dto.getTypeOfCreature(), dto.getNumberOfCreatures(), dto.getNameOfWorkLocation(),
                 dto.getAveregePieceOfWaterResources(), dto.getWeightOfCreatures(), dto.getSourceOfResources(),
-                dto.getDateOfFillingTheDocument());
+                dto.getDateOfFillingTheDocument(), dto.getNameOfEntity(), dto.getIdOfTaxpayer(), dto.getLocationOfParticipant(),
+                dto.getMainStateRegistrationNumber(), dto.getNameOfIE(), dto.getSurnameOfIE(), dto.getPatronymicOfIE());
         return document;
     }
 
-    @Override
-    public Participant getParticipantDAO(ParticipantDTO dto) {
-        Participant participants = new Participant(dto.getUserId(), dto.getUserId(), dto.isIE(), dto.getNameOfEntity(),
-                dto.getIdOfTaxpayer(), dto.getLocation(), dto.getMainStateRegistrationNumber(), dto.getNameOfIE(),
-                dto.getSurnameOfIE(), dto.getPatronymicOfIE());
-        return participants;
-    }
 
     @Override
     public User getUserDAO(UserDTO dto) {

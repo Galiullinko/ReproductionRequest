@@ -1,13 +1,14 @@
 package ru.itis.inform.RequestReproduction.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import ru.itis.inform.RequestReproduction.controllers.dto.AuthPairDTO;
+import ru.itis.inform.RequestReproduction.controllers.dto.DocumentDTO;
+import ru.itis.inform.RequestReproduction.controllers.dto.UserDTO;
 import ru.itis.inform.RequestReproduction.controllers.dto.converters.DTOConverter;
 import ru.itis.inform.RequestReproduction.controllers.dto.DocumentsDTO;
-import ru.itis.inform.RequestReproduction.controllers.dto.TokenDTO;
+import ru.itis.inform.RequestReproduction.dao.models.AuthPair;
+import ru.itis.inform.RequestReproduction.dao.models.User;
 import ru.itis.inform.RequestReproduction.services.*;
 
 /**
@@ -18,13 +19,11 @@ public class UsersController {
     @Autowired
     private DocumentService documentService;
     @Autowired
-    private ParticipantService participantService;
+    private UserService userService;
     @Autowired
-    private UserService usersService;
+    private TokenService tokenService;
     @Autowired
-    private TokenService tokensService;
-    @Autowired
-    private AuthPairService passwordService;
+    private AuthPairService authPairService;
     @Autowired
     private DTOConverter converter;
 
@@ -34,8 +33,27 @@ public class UsersController {
     }
 
     @RequestMapping(value = "/documents", method = RequestMethod.GET)
-    public DocumentsDTO getDocuments(@RequestBody TokenDTO tokenDTO) {
-        tokensService.verifyToken(tokenDTO.getToken());
+    public DocumentsDTO getDocuments(@RequestHeader(value = "auth-token") String token) {
+        tokenService.verifyToken(token);
         return converter.getDocumentsDTO(documentService.getDocuments());
+    }
+
+    @RequestMapping(value = "/document/{id}", method = RequestMethod.GET)
+    public DocumentDTO getDocumentById(@PathVariable(value = "id") int id) {
+        return new DocumentDTO(documentService.getDocumentById(id));
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public void login(@RequestHeader(value = "auth-token") String token) {
+        tokenService.verifyToken(token);
+    }
+
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public void signUp(@RequestBody UserDTO userDTO, @RequestBody AuthPairDTO authPairDTO) {
+        User user = converter.getUserDAO(userDTO);
+        AuthPair authPair = converter.getAuthPairDAO(authPairDTO);
+        userService.addUser(user);
+        authPairService.addAuthPair(authPair);
+        tokenService.setToken(user, authPair);
     }
 }

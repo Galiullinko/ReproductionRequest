@@ -30,9 +30,11 @@ public class TokensDAOImpl implements TokenDAO {
     DAOArgumentsVerifier daoArgumentsVerifier;
 
     // language=SQL
-    public static final String SQL_INSERT_TOKENS_INFO_INTO_TOKENS = "INSERT INTO tokens VALUES (:userId, :token)";
+    public static final String SQL_INSERT_TOKEN_INTO_TOKENS = "INSERT INTO tokens VALUES (:userId, :token)";
     // language=SQL
-    public static  final String SQL_SELECT_TOKEN_FROM_TOKENS = "SELECT token FROM tokens WHERE (userid = :userId)";
+    public static  final String SQL_SELECT_TOKEN_FROM_TOKENS_BY_USERID = "SELECT token FROM tokens WHERE (userid = :userId)";
+    // language=SQL
+    public static final String SQL_SELECT_TOKEN_FROM_TOKENS_BY_TOKEN = "SELECT * FROM tokens WHERE (token = :token)";
 
     static final RowMapper<Token> TOKENS_ROW_MAPPER = new RowMapper<Token>() {
         @Override
@@ -53,7 +55,7 @@ public class TokensDAOImpl implements TokenDAO {
             Map<String, Object> paramMap = paramsMapper.asMap(asList("userId", "token"),
                     asList(authPair.getUserId(), token));
 
-            sqlQueryExecutor.updateQuery(SQL_INSERT_TOKENS_INFO_INTO_TOKENS,paramMap);
+            sqlQueryExecutor.updateQuery(SQL_INSERT_TOKEN_INTO_TOKENS,paramMap);
         } else  throw new BadUserInAuthPairException(user, authPair);
 
     }
@@ -61,12 +63,18 @@ public class TokensDAOImpl implements TokenDAO {
     @Override
     public Token getToken(int userId) {
         Map<String, Object> paramMap = paramsMapper.asMap(asList("userId"), asList(userId));
-        return sqlQueryExecutor.queryForObject(SQL_SELECT_TOKEN_FROM_TOKENS,paramMap,TOKENS_ROW_MAPPER);
+        return sqlQueryExecutor.queryForObject(SQL_SELECT_TOKEN_FROM_TOKENS_BY_USERID,paramMap,TOKENS_ROW_MAPPER);
     }
 
     @Override
     public void verifyToken(String token) {
         daoArgumentsVerifier.verifyToken(token);
 
+    }
+
+    @Override
+    public Token getToken(String token) {
+        Map<String, Object> paramMap = paramsMapper.asMap(asList("token"), asList(token));
+        return sqlQueryExecutor.queryForObject(SQL_SELECT_TOKEN_FROM_TOKENS_BY_TOKEN,paramMap,TOKENS_ROW_MAPPER);
     }
 }

@@ -20,8 +20,15 @@ public class Document {
     private int weightOfCreatures;
     private String sourceOfResources;
     private Date dateOfFillingTheDocument;
+    private String nameOfEntity;
+    private String idOfTaxpayer;
+    private String locationOfParticipant;
+    private String mainStateRegistrationNumber;
+    private String nameOfIE;
+    private String surnameOfIE;
+    private String patronymicOfIE;
 
-    public Document(int documentId, int participantId, int yearOfWorks, String goal, Date dateOfEndOfTheWork, String stateOfCreature, String typeOfCreature, int numberOfCreatures, String nameOfWorkLocation, int averegePieceOfWaterResources, int weightOfCreatures, String sourceOfResources, Date dateOfFillingTheDocument) {
+    public Document(int documentId, int participantId, int yearOfWorks, String goal, Date dateOfEndOfTheWork, String stateOfCreature, String typeOfCreature, int numberOfCreatures, String nameOfWorkLocation, int averegePieceOfWaterResources, int weightOfCreatures, String sourceOfResources, Date dateOfFillingTheDocument, String nameOfEntity, String idOfTaxpayer, String locationOfParticipant, String mainStateRegistrationNumber, String nameOfIE, String surnameOfIE, String patronymicOfIE) {
         this.documentId = documentId;
         this.participantId = participantId;
         this.yearOfWorks = yearOfWorks;
@@ -35,6 +42,13 @@ public class Document {
         this.weightOfCreatures = weightOfCreatures;
         this.sourceOfResources = sourceOfResources;
         this.dateOfFillingTheDocument = dateOfFillingTheDocument;
+        this.nameOfEntity = nameOfEntity;
+        this.idOfTaxpayer = idOfTaxpayer;
+        this.locationOfParticipant = locationOfParticipant;
+        this.mainStateRegistrationNumber = mainStateRegistrationNumber;
+        this.nameOfIE = nameOfIE;
+        this.surnameOfIE = surnameOfIE;
+        this.patronymicOfIE = patronymicOfIE;
     }
 
     public int getYearOfWorks() {
@@ -141,13 +155,69 @@ public class Document {
         this.participantId = participant;
     }
 
+    public String getNameOfEntity() {
+        return nameOfEntity;
+    }
+
+    public void setNameOfEntity(String nameOfEntity) {
+        this.nameOfEntity = nameOfEntity;
+    }
+
+    public String getIdOfTaxpayer() {
+        return idOfTaxpayer;
+    }
+
+    public void setIdOfTaxpayer(String idOfTaxpayer) {
+        this.idOfTaxpayer = idOfTaxpayer;
+    }
+
+    public String getLocationOfParticipant() {
+        return locationOfParticipant;
+    }
+
+    public void setLocationOfParticipant(String locationOfParticipant) {
+        this.locationOfParticipant = locationOfParticipant;
+    }
+
+    public String getMainStateRegistrationNumber() {
+        return mainStateRegistrationNumber;
+    }
+
+    public void setMainStateRegistrationNumber(String mainStateRegistrationNumber) {
+        this.mainStateRegistrationNumber = mainStateRegistrationNumber;
+    }
+
+    public String getNameOfIE() {
+        return nameOfIE;
+    }
+
+    public void setNameOfIE(String nameOfIE) {
+        this.nameOfIE = nameOfIE;
+    }
+
+    public String getSurnameOfIE() {
+        return surnameOfIE;
+    }
+
+    public void setSurnameOfIE(String surnameOfIE) {
+        this.surnameOfIE = surnameOfIE;
+    }
+
+    public String getPatronymicOfIE() {
+        return patronymicOfIE;
+    }
+
+    public void setPatronymicOfIE(String patronymicOfIE) {
+        this.patronymicOfIE = patronymicOfIE;
+    }
+
     @Override
     public String toString() {
         return "Document{" +
-                "document_id=" + documentId +
-                ", participant_id=" + participantId +
+                "documentId=" + documentId +
+                ", participantId=" + participantId +
                 ", yearOfWorks=" + yearOfWorks +
-                ", goal=" + goal +
+                ", goal='" + goal + '\'' +
                 ", dateOfEndOfTheWork=" + dateOfEndOfTheWork +
                 ", stateOfCreature='" + stateOfCreature + '\'' +
                 ", typeOfCreature='" + typeOfCreature + '\'' +
@@ -157,6 +227,13 @@ public class Document {
                 ", weightOfCreatures=" + weightOfCreatures +
                 ", sourceOfResources='" + sourceOfResources + '\'' +
                 ", dateOfFillingTheDocument=" + dateOfFillingTheDocument +
+                ", nameOfEntity='" + nameOfEntity + '\'' +
+                ", idOfTaxpayer='" + idOfTaxpayer + '\'' +
+                ", locationOfParticipant='" + locationOfParticipant + '\'' +
+                ", mainStateRegistrationNumber='" + mainStateRegistrationNumber + '\'' +
+                ", nameOfIE='" + nameOfIE + '\'' +
+                ", surnameOfIE='" + surnameOfIE + '\'' +
+                ", patronymicOfIE='" + patronymicOfIE + '\'' +
                 '}';
     }
 }

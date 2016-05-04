@@ -28,22 +28,24 @@ public class DocumentDAOImpl implements DocumentDAO {
     private SQLQueryExecutor sqlQueryExecutor;
 
     // language=SQL
-    public static final String GET_DOCUMENT_BY_ID = "SELECT * FROM document WHERE (id = :documentId)";
+    public static final String GET_DOCUMENT_BY_ID = "SELECT * FROM documents WHERE (id = :documentId)";
     // language=SQL
-    public static final String GET_DOCUMENTS = "SELECT * FROM document WHERE (userid = :userId)";
-
+    public static final String GET_DOCUMENTS_OF_USER = "SELECT * FROM documents WHERE (userid = :userId)";
 
 
     private final RowMapper<Document> DOCUMENT_ROW_MAPPER = new RowMapper<Document>() {
         @Override
         public Document mapRow(ResultSet resultSet, int i) throws SQLException {
             try {
-                return new Document(resultSet.getInt("documentId"), resultSet.getInt("participantId"),
+                return new Document(resultSet.getInt("id"), resultSet.getInt("userId"),
                         resultSet.getInt("yearOfWorks"), resultSet.getString("goal"),
                         resultSet.getDate("dateOfEndOfTheWork"), resultSet.getString("stateOfCreature"),
                         resultSet.getString("typeOfCreature"), resultSet.getInt("numberOfCreatures"),
                         resultSet.getString("nameOfWorkLocation"), resultSet.getInt("averegePieceOfWaterResources"),
-                        resultSet.getInt("weightOfCreatures"), resultSet.getString("sourceOfResources"), resultSet.getDate("dateOfFillingTheDocument"));
+                        resultSet.getInt("weightOfCreatures"), resultSet.getString("sourceOfResources"), resultSet.getDate("dateOfFillingTheDocument"),
+                        resultSet.getString("nameOfEntity"), resultSet.getString("idOfTaxpayer"), resultSet.getString("location"),
+                        resultSet.getString("mainStateRegistrationNumber"), resultSet.getString("nameOfIE"),
+                        resultSet.getString("surnameOfIE"), resultSet.getString("patronymicOfIE"));
             }catch (SQLException e){
                 throw new IllegalArgumentException(e);
             }
@@ -54,7 +56,7 @@ public class DocumentDAOImpl implements DocumentDAO {
     public List<Document> getDocuments(int userId) {
         daoArgumentsVerifier.verifyUser(userId);
         Map<String, Object> paramMap = paramsMapper.asMap(asList("userId"), asList(userId));
-        return sqlQueryExecutor.queryForObjects(GET_DOCUMENTS, paramMap, DOCUMENT_ROW_MAPPER);
+        return sqlQueryExecutor.queryForObjects(GET_DOCUMENTS_OF_USER, paramMap, DOCUMENT_ROW_MAPPER);
 
     }
 

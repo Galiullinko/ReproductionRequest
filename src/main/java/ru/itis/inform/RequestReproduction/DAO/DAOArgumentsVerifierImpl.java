@@ -49,7 +49,7 @@ public class DAOArgumentsVerifierImpl implements DAOArgumentsVerifier {
 
     @Override
     public void verifyDocument(int documentId) {
-        Map<String, Object> paranMap = paramsMapper.asMap(asList("docuentId"), asList(documentId));
+        Map<String, Object> paranMap = paramsMapper.asMap(asList("documentId"), asList(documentId));
         int documentCount = sqlQueryExecutor.queryForInt(SQL_COUNT_DOCUMENTS_BY_ID, paranMap);
         if (documentCount != 1){
             throw new DocumentNotFoundException(documentId);
